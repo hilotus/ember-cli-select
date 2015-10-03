@@ -1,0 +1,13 @@
+<h2 id="title">Welcome to Ember</h2>
+
+<div class="row">
+  <div class="col-xs-6">
+    <span class="label label-primary">Single item</span>
+    {{select-picker width="100%" content=data selection=selection prompt='Single Item'}}
+  </div>
+
+  <div class="col-xs-6">
+    <span class="label label-primary">Multi-items</span>
+    {{select-picker width="100%" content=data selection=mutilSelection prompt='Multi-Items' isMultiple=true}}
+  </div>
+</div>
