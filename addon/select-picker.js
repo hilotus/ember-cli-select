@@ -66,16 +66,20 @@ export default Ember.Component.extend({
     this.rerender();
   }),
 
-  didInsertElement: function() {
-    return Ember.run.schedule('afterRender', this, function () {
-      return Ember.$(document).on('click', function (event) {
+  didInsertElement: function () {
+    Ember.$(document).bind('click', function (event) {
+      if (this.$() && this.$()[0]) {
         if (!Ember.$.contains(this.$()[0], event.target)) {
           if (this.get('isActive')) {
             this.set('isActive', false);
           }
         }
-      }.bind(this));
-    });
+      }
+    }.bind(this));
+  },
+
+  willDestroyElement: function () {
+    Ember.$(document).unbind('click');
   },
 
   actions: {
