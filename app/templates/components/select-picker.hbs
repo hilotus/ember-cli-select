@@ -1,4 +1,4 @@
-<a class="select-picker-single {{if isActive 'select-picker-single-with-drop'}}" {{action 'toggle'}}>
+<a tabindex="{{tabindex}}" class="select-picker-single {{if isActive 'select-picker-single-with-drop'}}" {{action 'toggle' on='click'}} {{action 'toggle' on='tap'}}>
   <span>{{title}}</span>
   <div>
     {{#if isActive}}
@@ -10,15 +10,11 @@
 </a>
 <div class="select-picker-drop">
   <div class="select-picker-search">
-    {{input type="text" autocomplete="off" value=keywords}}<i class="fa fa-search"></i>
+    {{input type="text" autocomplete="off" value=keywords key-down="keyDownSelect"}}<i class="fa fa-search"></i>
   </div>
   <ul class="select-picker-results">
-    {{#each searchContent as |item index|}}
-      {{#if isMultiple}}
-        {{select-picker-multip-list-item content=item}}
-      {{else}}
-        {{select-picker-single-list-item content=item}}
-      {{/if}}
+    {{#each searchModel as |item index|}}
+      {{select-picker-item model=item target=this index=index indexOfSearchModel=indexOfSearchModel}}
     {{/each}}
   </ul>
 </div>
