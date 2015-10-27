@@ -6,8 +6,5 @@ module.exports = {
 
   included: function(app) {
     this._super.included(app);
-
-    // css
-    app.import(app.bowerDirectory + '/coreweb-css/css/select_picker.css');
   }
 };

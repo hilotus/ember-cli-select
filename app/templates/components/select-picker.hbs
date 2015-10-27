@@ -1,6 +1,6 @@
 <a tabindex="{{tabindex}}" class="select-picker-single {{if isActive 'select-picker-single-with-drop'}}" {{action 'toggle' on='click'}} {{action 'toggle' on='tap'}}>
-  <span>{{title}}</span>
-  <div>
+  <span class="select-picker-title">{{title}}</span>
+  <div class="select-picker-direct">
     {{#if isActive}}
       <i class="fa fa-caret-up"></i>
     {{else}}
